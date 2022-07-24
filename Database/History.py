@@ -1,4 +1,4 @@
-import json
+from datetime import date
 import os
 from traceback import print_tb
 
@@ -9,21 +9,31 @@ class History:
         self.weather = weather
     
     def save(self):
-        obj = {
-            "city" : self.city,
-            "weather" : self.weather
-        }
 
-        __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), "history.json"))
-        history = str()
+        try:
+            obj = str(date.today()) + "," + self.city + "," + self.weather
+            __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), "history.csv"))
+            history = str()
 
-        file = open(__location__, "r+")
+            file = open(__location__, "a")
+            file.write("\n")
+            file.write(obj)
+            file.close()
 
-        history = json.loads(file.read())
-        history.append(obj)
-        history = json.dumps(history)
+            return True
 
-        # Changes pointer to 0
-        file.seek(0)
-        file.write(history)
-        file.close()
+        except Exception as ex:
+            print(ex)
+            return False
+
+    def getHistory(self):
+        try:
+            __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), "history.csv"))
+            history = str()
+
+            file = open(__location__, "r")
+            return file.read()
+            
+        except Exception as ex:
+            print(ex)
+            return False
