@@ -26,7 +26,8 @@ class History:
             print(ex)
             return False
 
-    def getHistory(self):
+    @staticmethod
+    def getHistory():
         try:
             __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__), "history.csv"))
             history = str()

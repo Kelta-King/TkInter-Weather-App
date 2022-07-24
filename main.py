@@ -1,8 +1,18 @@
 from Database import History as h
+import tkinter as tk
+from Designs import *
 
 def main():
-    hs = h.History("Gandhinagar", "32 cm")
-    hs.getHistory()
+    
+    window = tk.Tk()
+
+    window.title("Kelta Weather App")
+    photo = tk.PhotoImage(file = "Media/icon.png")
+    window.iconphoto(False, photo)
+    window.minsize(width=600, height=400)
+
+    tk.mainloop()
+
 
 if __name__=="__main__":
     main()
