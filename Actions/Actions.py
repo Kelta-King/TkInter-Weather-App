@@ -16,8 +16,10 @@ class Actions:
             
             res.close()
             res = json.loads(res.content)
-            temp = str(int(res["main"]["temp"])-273)+" °C"
-            return res["name"], temp, res["weather"][0]["main"]
+            temp_h = h.History(res["name"], str(str(int(res["main"]["temp"])-273)+" C"))
+            temp_h.save()
+
+            return res["name"], str(int(res["main"]["temp"])-273)+" °C", res["weather"][0]["main"]
             
         except Exception as ex:
             print(ex)
