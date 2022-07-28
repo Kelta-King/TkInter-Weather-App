@@ -13,7 +13,7 @@ git clone https://github.com/Kelta-King/TkInter-Weather-App.git
 Then go to the TkInter-Weather-App folder and run the main.py file
 ```
 cd TkInter-Weather-App
-python3 main.py
+python main.py
 ```
 
 ## How to make EXE file of the application
@@ -32,3 +32,7 @@ auto-py-to-exe
 ```
 
 Then choose the options accordingly and it will generate the command for you. That command is of PyInstaller. Run that command in cmd and you will get your Executable file in dist folder in the cmd directory.
+
+Here is the image of how the application looks
+
+![](https://github.com/Kelta-King/TkInter-Weather-App/blob/main/Media/Weather-App.PNG)
